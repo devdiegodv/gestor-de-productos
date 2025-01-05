@@ -22,6 +22,9 @@ El proyecto utiliza los siguientes módulos de npm para gestionar las funcionali
 - **mongoose**: Biblioteca de modelado de datos para MongoDB, que facilita la interacción con la base de datos y la definición de esquemas.
 - **passport**: Middleware para la autenticación de usuarios, permitiendo diversas estrategias de autenticación.
 - **passport-local**: Estrategia de autenticación local para usar nombre de usuario y contraseña en el inicio de sesión.
+- **dotenv**: Módulo para cargar variables de entorno desde un archivo `.env`, permitiendo gestionar de forma segura claves y configuraciones sensibles en el proyecto.
+- **nodemon**: Herramienta que reinicia automáticamente el servidor de desarrollo cuando se realizan cambios en los archivos del proyecto, facilitando el proceso de desarrollo.
+- **npm-check-updates**: Herramienta que permite actualizar las dependencias del `package.json` a la última versión disponible de forma fácil, ayudando a mantener las dependencias del proyecto actualizadas.
 
 ## Características principales
 
