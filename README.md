@@ -41,6 +41,18 @@ El proyecto utiliza los siguientes módulos de npm para gestionar las funcionali
 3. Los usuarios pueden seleccionar productos de una lista y agregarlos a una nueva nota o lista de compras.
 4. Cada cuenta mantiene un historial de sus notas y productos seleccionados, permitiendo organizar y revisar las compras de forma sencilla.
 
+## Instrucciones de configuración
+
+Antes de ejecutar el proyecto, es necesario configurar las variables de entorno. Para ello:
+
+1. **Crea un archivo `.env`** en la raíz del proyecto.
+2. Define las siguientes variables en el archivo `.env`:
+
+   ```env
+   MULTIGESTOR_MONGODB_HOST=127.0.0.1
+   MULTIGESTOR_MONGODB_PORT=27017
+   MULTIGESTOR_MONGODB_DATABASE=gestor-de-productos
+
 ## Hecho por
 
 **Diego Donoso Vera**
