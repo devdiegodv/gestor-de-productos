@@ -8,6 +8,8 @@ Este proyecto es una aplicación web para gestionar y organizar productos necesa
 - **MongoDB**: Base de datos NoSQL utilizada para almacenar de forma flexible los datos de los usuarios, notas y productos seleccionados.
 - **Express.js**: Framework para Node.js, utilizado para gestionar las rutas y facilitar la creación del servidor.
 - **HTML, CSS y JavaScript**: Tecnologías utilizadas para el frontend y la interfaz de usuario.
+- **Bootstrap 5**: Framework CSS para el diseño y la creación de interfaces modernas, responsivas y adaptables a diferentes tamaños de pantalla. Se ha utilizado para mejorar la apariencia y la usabilidad de la aplicación sin depender de jQuery.
+- **FontAwesome**: Librería de iconos que permite añadir iconos vectoriales escalables y personalizables a la aplicación web.
 
 ## Módulos de npm utilizados
 
