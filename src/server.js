@@ -1,11 +1,11 @@
 const express = require('express');
+const exphbs = require('express-handlebars');
 const path = require('path');
 
 // Initilizations
 const app = express();
 
 // Settings
-
 app.set('port', process.env.PORT || 4000); 
 /**
  * `app.set('port', ...)` establece el puerto en el que el servidor escuchará.
@@ -20,6 +20,18 @@ app.set('views', path.join(__dirname, '/views'));
  * `__dirname` es una variable global que apunta al directorio actual donde se está ejecutando el archivo.
  */
 
+// Configura el motor de plantillas Handlebars con extensión .hbs
+app.engine('.hbs', exphbs.engine({
+    // Define el nombre del layout por defecto
+    defaultLayout: 'main', // 'main' es el layout que envolverá todas las vistas
+    // Especifica la carpeta donde se encuentran los layouts
+    layoutsDir: path.join(app.get('views'), 'layouts'),
+    // Especifica la carpeta donde se encuentran los partials (vistas parciales)
+    partialsDir: path.join(app.get('views'), 'partials'),
+    // Establece la extensión de los archivos de plantilla como .hbs
+    extname: '.hbs' // Todos los archivos de plantilla serán .hbs
+}));
+
 // Middlewares
 app.use(express.urlencoded({extended: false}));
 /**
@@ -29,7 +41,7 @@ app.use(express.urlencoded({extended: false}));
 
 // Routes
 app.get('/', (req, res) => {
-    res.send("Hola Mundo");
+    res.render('index');
 })
 
 // Static files
