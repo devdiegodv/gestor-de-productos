@@ -31,6 +31,7 @@ app.engine('.hbs', exphbs.engine({
     // Establece la extensión de los archivos de plantilla como .hbs
     extname: '.hbs' // Todos los archivos de plantilla serán .hbs
 }));
+app.set('view engine', '.hbs');
 
 // Middlewares
 app.use(express.urlencoded({extended: false}));
@@ -38,6 +39,15 @@ app.use(express.urlencoded({extended: false}));
  * `express.urlencoded({ extended: false })` es un middleware que permite analizar los datos de formularios con el encoding `application/x-www-form-urlencoded`.
  * - `{ extended: false }` indica que no se permitirá el análisis de objetos anidados en los datos del formulario (usamos el parser de querystring de Node.js).
  */
+
+// Middleware de manejo de errores
+app.use((err, req, res, next) => {
+    console.error('Middleware de manejo de errores:', err);
+    res.status(500).json({
+        message: 'Ha ocurrido un error en el servidor',
+        error: err.message,
+    });
+});
 
 // Routes
 app.use(require('./routes/index.routes'))
