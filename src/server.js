@@ -40,15 +40,6 @@ app.use(express.urlencoded({extended: false}));
  * - `{ extended: false }` indica que no se permitirá el análisis de objetos anidados en los datos del formulario (usamos el parser de querystring de Node.js).
  */
 
-// Middleware de manejo de errores
-app.use((err, req, res, next) => {
-    console.error('Middleware de manejo de errores:', err);
-    res.status(500).json({
-        message: 'Ha ocurrido un error en el servidor',
-        error: err.message,
-    });
-});
-
 // Routes
 app.use(require('./routes/index.routes'))
 
