@@ -2,7 +2,7 @@ const { Router } = require('express');
 const router = Router();
 
 // Importamos las funciones del controlador
-const { renderIndex, renderAbout } = require('../controllers/index.controller');
+const { renderIndex, renderFaq } = require('../controllers/index.controller');
 
 /**
  * Ruta principal del sitio web
@@ -11,10 +11,13 @@ const { renderIndex, renderAbout } = require('../controllers/index.controller');
  */
 router.get('/', async (req, res, next) => {
     try {
-        await renderIndex(req, res);
+        renderIndex(req, res);
     } catch (error) {
-        console.error('Error al cargar la página de inicio:', error);
-        next(error); // Pasamos el error al siguiente middleware de manejo de errores
+        console.error('Error al cargar la ruta de inicio: ', error);
+        res.status(500).json({
+            message: 'Ocurrió un error al cargar la ruta de inicio.',
+            error: error.message || error
+        });
     }
 });
 
@@ -23,12 +26,15 @@ router.get('/', async (req, res, next) => {
  * @route GET /faq
  * @desc Renderiza la página de preguntas frecuentes
  */
-router.get('/faq', async (req, res, next) => {
+router.get('/faq', (req, res, next) => {
     try {
-        await renderAbout(req, res);
+        renderFaq(req, res);
     } catch (error) {
-        console.error('Error al cargar la página de FAQ:', error);
-        next(error); // Pasamos el error al siguiente middleware de manejo de errores
+        console.error('Error al cargar la ruta de FAQ: ', error);
+        res.status(500).json({
+            message: 'Ocurrió un error al cargar la ruta de FAQ.',
+            error: error.message || error
+        });
     }
 });
 
