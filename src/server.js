@@ -31,6 +31,7 @@ app.engine('.hbs', exphbs.engine({
     // Establece la extensión de los archivos de plantilla como .hbs
     extname: '.hbs' // Todos los archivos de plantilla serán .hbs
 }));
+app.set('view engine', '.hbs');
 
 // Middlewares
 app.use(express.urlencoded({extended: false}));

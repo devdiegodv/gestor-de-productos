@@ -1,1 +1,100 @@
-<p>test</p>
+<h1 class="text-center text-primary mb-4">
+    <i class="fas fa-home me-2"></i> Bienvenido al Gestor de Productos para el Hogar
+</h1>
+
+<div class="container">
+    <div class="row">
+        <!-- Descripción general -->
+        <div class="col-12">
+            <p class="lead text-muted">
+                Este es un sistema completo para gestionar tus compras y productos para el hogar. A continuación te detallamos las funcionalidades principales de la plataforma:
+            </p>
+        </div>
+    </div>
+
+    <!-- Tarjetas de características principales -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Card 1: Registro e Ingreso de Usuarios -->
+        <div class="col">
+            <div class="card shadow-lg h-100 border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title d-flex align-items-center">
+                        <i class="fas fa-user-plus fa-lg me-3"></i>Registro e Ingreso de Usuarios
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Los usuarios pueden crear una cuenta y acceder a su perfil personalizado para gestionar sus notas de compra.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Notas Personalizadas -->
+        <div class="col">
+            <div class="card shadow-lg h-100 border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title d-flex align-items-center">
+                        <i class="fas fa-sticky-note fa-lg me-3"></i>Notas Personalizadas
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Cada usuario puede crear y editar notas con productos seleccionados desde una lista categorizada de productos necesarios para el hogar (supermercado, limpieza, etc.).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Selección de Productos -->
+        <div class="col">
+            <div class="card shadow-lg h-100 border-warning">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="card-title d-flex align-items-center">
+                        <i class="fas fa-list fa-lg me-3"></i>Selección de Productos
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Una lista de productos predefinidos permite seleccionar los artículos que el usuario desea agregar a sus notas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Interfaz Sencilla y Amigable -->
+        <div class="col">
+            <div class="card shadow-lg h-100 border-info">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title d-flex align-items-center">
+                        <i class="fas fa-desktop fa-lg me-3"></i>Interfaz Sencilla y Amigable
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Fácil de usar, con una experiencia de usuario intuitiva para agregar, editar y revisar productos en las notas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5: Seguridad -->
+        <div class="col">
+            <div class="card shadow-lg h-100 border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="card-title d-flex align-items-center">
+                        <i class="fas fa-shield-alt fa-lg me-3"></i>Seguridad
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Implementación de funcionalidades básicas de seguridad para proteger las cuentas de usuario, incluyendo el cifrado de contraseñas con bcryptjs y autenticación segura con passport.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Llamado a la acción para registro e ingreso -->
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <p class="lead">Comienza a usar la plataforma registrándote o iniciando sesión.</p>
+            <a href="/registro" class="btn btn-primary btn-lg mb-3 mb-sm-0 me-2">
+                <i class="fas fa-user-plus me-2"></i> Registro
+            </a>
+            <a href="/ingreso" class="btn btn-secondary btn-lg mb-3 mb-sm-0">
+                <i class="fas fa-sign-in-alt me-2"></i> Ingreso
+            </a>
+        </div>
+    </div>
+</div>
