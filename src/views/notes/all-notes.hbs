@@ -17,7 +17,7 @@
                     <p class="card-text text-muted mb-3" style="flex-grow: 1;">{{description}}</p> <!-- Se añadió flex-grow para que la descripción ocupe el espacio restante y se ajuste -->
 
                     <!-- Formulario para Borrar la Nota -->
-                    <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                    <form action="/notas/borrar/{{_id}}?_method=DELETE" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger w-100 btn-sm mb-2" title="Borrar Nota">
                             <i class="fas fa-trash-alt"></i> Borrar <!-- Icono de eliminar -->
