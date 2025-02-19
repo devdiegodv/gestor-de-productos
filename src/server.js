@@ -36,6 +36,17 @@ app.set('view engine', '.hbs');
 
 // Middlewares
 app.use(morgan('dev'))
+/**
+ * `morgan('dev')` es un middleware de logging que muestra los detalles de cada solicitud HTTP en la consola.
+ * - El parámetro `'dev'` define un formato compacto de log que muestra información útil como el método HTTP, el URL solicitado, el código de estado HTTP y el tiempo de respuesta.
+ * - Este formato es especialmente útil para entornos de desarrollo, ya que proporciona información clara y concisa.
+ * 
+ * Ejemplo de salida de log en consola:
+ * `GET /home 200 15ms`
+ * Esto indica que se hizo una solicitud GET a la ruta `/home`, la respuesta fue con un código de estado 200 (OK), y el tiempo de respuesta fue de 15 milisegundos.
+ * 
+ * `morgan` puede ser configurado con otros formatos como `'combined'`, `'tiny'`, `'common'`, etc., según sea necesario para diferentes entornos.
+ */
 app.use(express.urlencoded({extended: false}));
 /**
  * `express.urlencoded({ extended: false })` es un middleware que permite analizar los datos de formularios con el encoding `application/x-www-form-urlencoded`.
