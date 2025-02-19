@@ -9,7 +9,7 @@ const notesController = {};
  * @param {Object} res - El objeto de la respuesta (response).
  */
 notesController.renderNoteForm = (req, res) => {
-    res.send('noteForm')
+    res.render('notes/new-note');
 };
 
 /**
@@ -20,6 +20,7 @@ notesController.renderNoteForm = (req, res) => {
  * @param {Object} res - El objeto de la respuesta (response).
  */
 notesController.createNewNote = (req, res) => {
+    console.table(req.body)
     res.status(201).send('Nueva nota creada con éxito');
 };
 
