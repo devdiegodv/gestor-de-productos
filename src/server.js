@@ -34,6 +34,9 @@ app.engine('.hbs', exphbs.engine({
 }));
 app.set('view engine', '.hbs');
 
+// Configura express para servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'src', 'public')));
+
 // Middlewares
 app.use(morgan('dev'))
 /**
