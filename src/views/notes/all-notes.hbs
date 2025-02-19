@@ -1,0 +1,37 @@
+<!-- Fila principal que contiene las tarjetas de las notas -->
+<div class="row">
+    {{#each notes}}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"> <!-- Columnas responsivas (12 columnas en móvil, 6 en pantallas pequeñas, 4 en pantallas medianas, 3 en pantallas grandes) -->
+            <!-- Tarjeta de Nota con Sombra -->
+            <div class="card shadow-lg border-light rounded" style="min-height: 250px;"> <!-- Se añadió min-height -->
+                <div class="card-body d-flex flex-column">
+                    <!-- Título de la Nota y Botón de Editar -->
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        {{title}}
+                        <a href="/notes/edit/{{_id}}" class="btn btn-outline-secondary btn-sm" title="Editar Nota">
+                            <i class="fas fa-edit"></i> <!-- Icono de editar -->
+                        </a>
+                    </h4>
+                    
+                    <!-- Descripción de la Nota -->
+                    <p class="card-text text-muted mb-3" style="flex-grow: 1;">{{description}}</p> <!-- Se añadió flex-grow para que la descripción ocupe el espacio restante y se ajuste -->
+
+                    <!-- Formulario para Borrar la Nota -->
+                    <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger w-100 btn-sm mb-2" title="Borrar Nota">
+                            <i class="fas fa-trash-alt"></i> Borrar <!-- Icono de eliminar -->
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+
+<!-- Botón general para agregar nueva nota fuera de las tarjetas -->
+<div class="d-flex justify-content-center mt-4">
+    <a href="/notas/agregar" class="btn btn-primary btn-lg shadow-lg" title="Agregar Nueva Nota">
+        <i class="fas fa-plus-circle"></i> Agregar Nota
+    </a>
+</div>
