@@ -22,11 +22,11 @@ router.get('/notas/agregar', (req, res, next) => {
 });
 
 /**
- * Ruta para crear una nueva nota
- * @route POST /notas/agregar
- * @desc Procesa y crea una nueva nota con los datos enviados
+ * Ruta para crear una nota nueva
+ * @route POST /notas/nota-nueva
+ * @desc Procesa y crea una nota nueva con los datos enviados
  */
-router.post('/notas/agregar', (req, res, next) => {
+router.post('/notas/nota-nueva', (req, res, next) => {
     try {
         createNewNote(req, res);
     } catch (error) {

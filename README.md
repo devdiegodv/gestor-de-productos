@@ -27,6 +27,7 @@ El proyecto utiliza los siguientes módulos de npm para gestionar las funcionali
 - **dotenv**: Módulo para cargar variables de entorno desde un archivo `.env`, permitiendo gestionar de forma segura claves y configuraciones sensibles en el proyecto.
 - **nodemon**: Herramienta que reinicia automáticamente el servidor de desarrollo cuando se realizan cambios en los archivos del proyecto, facilitando el proceso de desarrollo.
 - **npm-check-updates**: Herramienta que permite actualizar las dependencias del `package.json` a la última versión disponible de forma fácil, ayudando a mantener las dependencias del proyecto actualizadas.
+- **morgan**: Middleware para el registro de logs HTTP. Se utiliza para generar información sobre las solicitudes que se hacen a la aplicación, incluyendo detalles como el método HTTP, la ruta solicitada, el código de estado y el tiempo de respuesta. Este módulo es útil principalmente en entornos de desarrollo para depurar y monitorear el tráfico de la aplicación.
 
 ## Características principales
 
