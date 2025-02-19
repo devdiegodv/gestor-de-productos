@@ -1,3 +1,34 @@
-<form action="/notas/nueva-nota" method="POST">
-    <input type="text" name="title">
-</form>
+<div class="col-md-6 col-lg-4 mx-auto my-4">
+    <div class="card shadow-sm border-light">
+        <div class="card-header text-center">
+            <h3 class="card-title">Nueva Nota</h3>
+        </div>
+        <div class="card-body">
+            <!-- Formulario de Nueva Nota -->
+            <form action="/notas/nota-nueva" method="POST" aria-labelledby="note-form">
+                <!-- Campo para el Título -->
+                <div class="form-group mb-3">
+                    <label for="title" class="form-label">Título</label>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Ingrese el título de la nota" autofocus required>
+                </div>
+
+                <!-- Campo para la Descripción -->
+                <div class="form-group mb-3">
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea id="description" name="description" class="form-control" rows="5" placeholder="Describa la nota" required></textarea>
+                </div>
+
+                <!-- Botón para Guardar -->
+                <div class="form-group">
+                    <button class="btn btn-primary w-100">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
