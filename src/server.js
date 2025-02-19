@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const morgan = require('morgan');
 
 // Initilizations
 const app = express();
@@ -34,6 +35,7 @@ app.engine('.hbs', exphbs.engine({
 app.set('view engine', '.hbs');
 
 // Middlewares
+app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}));
 /**
  * `express.urlencoded({ extended: false })` es un middleware que permite analizar los datos de formularios con el encoding `application/x-www-form-urlencoded`.
