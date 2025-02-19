@@ -40,8 +40,4 @@ app.use(express.urlencoded({extended: false}));
 app.use(require('./routes/index.routes'))
 app.use(require('./routes/notes.routes'))
 
-// Static files
-app.use(express.static(path.join(__dirname, '/public'))); 
-// permite servir archivos estáticos desde una carpeta específica. Así, los archivos estáticos estarán disponibles en URLs relativas a la raíz del sitio.
-
 module.exports = app;
