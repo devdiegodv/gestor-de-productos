@@ -68,7 +68,7 @@ notesController.renderNotes = async (req, res) => {
  * @param {Object} res - El objeto de la respuesta (response).
  */
 notesController.renderEditForm = (req, res) => {
-    res.send('editar nota')
+    res.render('notes/edit-note');
 };
 
 /**
