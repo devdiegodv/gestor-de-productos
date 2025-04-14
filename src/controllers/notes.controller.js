@@ -67,8 +67,9 @@ notesController.renderNotes = async (req, res) => {
  * @param {Object} req - El objeto de la solicitud (request).
  * @param {Object} res - El objeto de la respuesta (response).
  */
-notesController.renderEditForm = (req, res) => {
-    res.render('notes/edit-note');
+notesController.renderEditForm = async (req, res) => {
+    const note = await Note.findById(req.params.id).lean();
+    res.render('notes/edit-notes', {note});
 };
 
 /**
@@ -78,8 +79,17 @@ notesController.renderEditForm = (req, res) => {
  * @param {Object} req - El objeto de la solicitud (request).
  * @param {Object} res - El objeto de la respuesta (response).
  */
-notesController.updateNote = (req, res) => {
-    res.send('Nota actualizada con éxito');
+notesController.updateNote = async (req, res) => {
+    const { title, description } = req.body;
+    await Note.findByIdAndUpdate(req.params.id, { title, description });
+    try {
+        // Redirigimos al usuario a la lista de notas
+        res.redirect('/notas');
+    }
+    catch (error) {
+        // En caso de error, mostramos un mensaje adecuado
+        res.status(500).send('Error al actualizar la nota');
+    }
 };
 
 /**
