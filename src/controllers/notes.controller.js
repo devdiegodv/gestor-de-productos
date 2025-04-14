@@ -32,6 +32,7 @@ notesController.createNewNote = async (req, res) => {
         // Guardamos la nueva nota en la base de datos
         await newNote.save();
 
+        req.flash('success_msg', 'Nota creada correctamente'); // Mensaje de éxito
         // Redirigimos al usuario a la lista de notas
         res.redirect('/notas');
     } catch (error) {
@@ -80,9 +81,10 @@ notesController.renderEditForm = async (req, res) => {
  * @param {Object} res - El objeto de la respuesta (response).
  */
 notesController.updateNote = async (req, res) => {
-    const { title, description } = req.body;
-    await Note.findByIdAndUpdate(req.params.id, { title, description });
     try {
+        const { title, description } = req.body;
+        await Note.findByIdAndUpdate(req.params.id, { title, description });
+        req.flash('success_msg', 'Nota actualizada correctamente');
         // Redirigimos al usuario a la lista de notas
         res.redirect('/notas');
     }
@@ -103,7 +105,7 @@ notesController.deleteNote = async (req, res) => {
     try {
         // Eliminamos la nota por su ID
         await Note.findByIdAndDelete(req.params.id);
-
+        req.flash('success_msg', 'Nota eliminada correctamente'); // Mensaje de éxito
         // Redirigimos al usuario a la lista de notas
         res.redirect('/notas');
     } catch (error) {

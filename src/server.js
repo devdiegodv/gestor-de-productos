@@ -3,6 +3,8 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 // Initilizations
 const app = express();
@@ -30,14 +32,27 @@ app.use(express.static(path.join(__dirname, 'src', 'public')));
 // Middlewares
 app.use(methodOverride('_method')); // para usar métodos http como DELETE y PUT en formularios HTML
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
 /**
  * `express.urlencoded({ extended: false })` es un middleware que permite analizar los datos de formularios con el encoding `application/x-www-form-urlencoded`.
  * - `{ extended: false }` indica que no se permitirá el análisis de objetos anidados en los datos del formulario (usamos el parser de querystring de Node.js).
  */
+app.use(express.urlencoded({extended: false}));
+app.use(session({
+    secret: 'mysecret', // Clave secreta para firmar la sesión
+    resave: true, // Fuerza a guardar la sesión en cada solicitud, incluso si no ha habido cambios
+    saveUninitialized: true // Guarda una sesión nueva incluso si no ha sido inicializada
+}));
+app.use(flash()); // Middleware para mostrar mensajes flash
+
+app.use((req, res, next) => {
+    // Middleware para pasar variables locales a todas las vistas
+    res.locals.success_msg = req.flash('success_msg'); // Mensajes de éxito
+    res.locals.error_msg = req.flash('error_msg'); // Mensajes de error
+    next(); // Llama al siguiente middleware o ruta
+});
 
 // Routes
-app.use(require('./routes/index.routes'))
-app.use(require('./routes/notes.routes'))
+app.use(require('./routes/index.routes'));
+app.use(require('./routes/notes.routes'));
 
 module.exports = app;
