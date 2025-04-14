@@ -32,6 +32,7 @@ notesController.createNewNote = async (req, res) => {
         // Guardamos la nueva nota en la base de datos
         await newNote.save();
 
+        req.flash('success_msg', 'Nota creada correctamente'); // Mensaje de éxito
         // Redirigimos al usuario a la lista de notas
         res.redirect('/notas');
     } catch (error) {
@@ -67,8 +68,9 @@ notesController.renderNotes = async (req, res) => {
  * @param {Object} req - El objeto de la solicitud (request).
  * @param {Object} res - El objeto de la respuesta (response).
  */
-notesController.renderEditForm = (req, res) => {
-    res.send('editar nota')
+notesController.renderEditForm = async (req, res) => {
+    const note = await Note.findById(req.params.id).lean();
+    res.render('notes/edit-notes', {note});
 };
 
 /**
@@ -78,8 +80,18 @@ notesController.renderEditForm = (req, res) => {
  * @param {Object} req - El objeto de la solicitud (request).
  * @param {Object} res - El objeto de la respuesta (response).
  */
-notesController.updateNote = (req, res) => {
-    res.send('Nota actualizada con éxito');
+notesController.updateNote = async (req, res) => {
+    try {
+        const { title, description } = req.body;
+        await Note.findByIdAndUpdate(req.params.id, { title, description });
+        req.flash('success_msg', 'Nota actualizada correctamente');
+        // Redirigimos al usuario a la lista de notas
+        res.redirect('/notas');
+    }
+    catch (error) {
+        // En caso de error, mostramos un mensaje adecuado
+        res.status(500).send('Error al actualizar la nota');
+    }
 };
 
 /**
@@ -93,7 +105,7 @@ notesController.deleteNote = async (req, res) => {
     try {
         // Eliminamos la nota por su ID
         await Note.findByIdAndDelete(req.params.id);
-
+        req.flash('success_msg', 'Nota eliminada correctamente'); // Mensaje de éxito
         // Redirigimos al usuario a la lista de notas
         res.redirect('/notas');
     } catch (error) {

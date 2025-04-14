@@ -1,5 +1,7 @@
 # Gestor de Productos para el Hogar
 
+![Logo del Proyecto](https://i.ibb.co/DHjkr6dv/Captura-de-pantalla-2025-02-19-024457.png)
+
 Este proyecto es una aplicación web para gestionar y organizar productos necesarios para el hogar. Permite a los usuarios crear cuentas, iniciar sesión y administrar sus propias listas de compras. Cada usuario tiene acceso a sus propias "notas", donde puede seleccionar productos desde una lista predefinida y llevar un registro de los artículos que necesita comprar.
 
 ## Tecnologías utilizadas
