@@ -1,0 +1,93 @@
+{{!-- 
+    Formulario de Registro de Usuario
+    - Diseño moderno, responsivo y elegante con Bootstrap 5
+    - Sombreados, bordes redondeados y detalles visuales
+    - Campos con placeholders y tooltips
+    - Documentado en español
+--}}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white rounded-top-4 text-center">
+                    <h3 class="card-title mb-0 fw-bold">
+                        <i class="bi bi-person-plus-fill me-2"></i>Registrar Cuenta
+                    </h3>
+                </div>
+                <div class="card-body p-4">
+                    {{!-- Formulario de registro --}}
+                    <form action="/users/signup" method="POST" autocomplete="off">
+                        {{!-- Campo: Nombre --}}
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">Nombre</label>
+                            <input 
+                                type="text" 
+                                name="name" 
+                                id="name" 
+                                class="form-control rounded-3 shadow-sm" 
+                                placeholder="Ingresa tu nombre completo"
+                                required
+                                maxlength="50"
+                                title="Nombre completo"
+                                autocomplete="name"
+                            >
+                        </div>
+                        {{!-- Campo: Correo electrónico --}}
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                class="form-control rounded-3 shadow-sm" 
+                                placeholder="ejemplo@correo.com"
+                                required
+                                maxlength="100"
+                                title="Correo electrónico válido"
+                                autocomplete="username"
+                            >
+                        </div>
+                        {{!-- Campo: Contraseña --}}
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold">Contraseña</label>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                class="form-control rounded-3 shadow-sm" 
+                                placeholder="Mínimo 6 caracteres"
+                                required
+                                minlength=" 6"
+                                title="Contraseña segura"
+                                autocomplete="new-password"
+                            >
+                        </div>
+                        {{!-- Campo: Confirmar contraseña --}}
+                        <div class="mb-4">
+                            <label for="confirm_password" class="form-label fw-semibold">Confirmar contraseña</label>
+                            <input 
+                                type="password" 
+                                name="confirm_password" 
+                                id="confirm_password" 
+                                class="form-control rounded-3 shadow-sm" 
+                                placeholder="Repite la contraseña"
+                                required
+                                minlength="6"
+                                title="Repite la contraseña"
+                                autocomplete="new-password"
+                            >
+                        </div>
+                        {{!-- Botón de registro --}}
+                        <button type="submit" class="btn btn-primary w-100 fw-bold shadow-sm rounded-3">
+                            <i class="bi bi-person-check-fill me-2"></i>Registrar
+                        </button>
+                    </form>
+                </div>
+                <div class="card-footer bg-light text-center rounded-bottom-4">
+                    <small>¿Ya tienes cuenta? <a href="/usuarios/ingreso" class="text-primary fw-semibold">Inicia sesión</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
