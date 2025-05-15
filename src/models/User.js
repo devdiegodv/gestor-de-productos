@@ -39,7 +39,7 @@ const UserSchema = new Schema(
  * @param {string} password - Contraseña proporcionada por el usuario.
  * @returns {Promise<string>} Contraseña encriptada.
  */
-UserSchema.methods.encrypPassword = async function(password) {
+UserSchema.methods.encryptPassword = async function(password) {
   try {
     // Generar un 'salt' (sal) con un nivel de complejidad de 10
     const salt = await bcrypt.genSalt(10);
