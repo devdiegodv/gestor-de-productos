@@ -26,7 +26,7 @@ router.get('/usuarios/ingreso', renderSigninForm);
 router.post('/users/signin', signin);
 
 // Cierra la sesión del usuario
-router.get('/usuarios/salida', logout);
+router.get('/usuarios/salir', logout);
 
 // Exporta el router para ser utilizado en otras partes de la aplicación
 module.exports = router;
