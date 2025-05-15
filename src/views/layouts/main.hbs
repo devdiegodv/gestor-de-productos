@@ -26,7 +26,9 @@
     {{>navigation}}
 
     <main class="container p-5">
-        {{> messages}}
+        {{>messages}}
+        {{>errors}}
+        {{! Aquí se renderizan los mensajes de error y éxito, si los hay }}
         <!-- Esta es la sección donde se renderiza el cuerpo principal de la página, el contenido específico de cada vista -->
         {{{body}}}
     </main>

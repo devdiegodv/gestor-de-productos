@@ -27,7 +27,7 @@ app.engine('.hbs', exphbs.engine({
 app.set('view engine', '.hbs');
 
 // Configura express para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'src', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Middlewares
 app.use(methodOverride('_method')); // para usar métodos http como DELETE y PUT en formularios HTML
@@ -54,5 +54,6 @@ app.use((req, res, next) => {
 // Routes
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/notes.routes'));
+app.use(require('./routes/users.routes'));
 
 module.exports = app;

@@ -1,0 +1,65 @@
+{{!-- 
+    Formulario de Ingreso de Usuario
+    - Diseño moderno, responsivo y elegante con Bootstrap 5
+    - Sombreados, bordes redondeados y detalles visuales
+    - Campos con placeholders y tooltips
+    - Documentado en español
+    - Optimizado para experiencia de usuario
+--}}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white rounded-top-4 text-center">
+                    <h3 class="card-title mb-0 fw-bold">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
+                    </h3>
+                </div>
+                <div class="card-body p-4">
+                    {{!-- Formulario de ingreso --}}
+                    <form action="/users/signin" method="POST" autocomplete="off">
+                        {{!-- Campo: Correo electrónico --}}
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Correo electrónico</label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                class="form-control rounded-3 shadow-sm" 
+                                placeholder="ejemplo@correo.com"
+                                required
+                                maxlength="100"
+                                title="Ingresa tu correo electrónico"
+                                autofocus
+                                autocomplete="username"
+                            >
+                        </div>
+                        {{!-- Campo: Contraseña --}}
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold">Contraseña</label>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                class="form-control rounded-3 shadow-sm" 
+                                placeholder="Tu contraseña"
+                                required
+                                minlength="6"
+                                title="Ingresa tu contraseña"
+                                autocomplete="current-password"
+                            >
+                        </div>
+                        {{!-- Botón de ingreso --}}
+                        <button type="submit" class="btn btn-primary w-100 fw-bold shadow-sm rounded-3">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Ingresar
+                        </button>
+                    </form>
+                </div>
+                <div class="card-footer bg-light text-center rounded-bottom-4">
+                    <small>¿No tienes cuenta? <a href="/usuarios/registro" class="text-primary fw-semibold">Regístrate aquí</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
