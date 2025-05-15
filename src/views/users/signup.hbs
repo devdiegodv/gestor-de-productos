@@ -29,8 +29,9 @@
                                 placeholder="Ingresa tu nombre completo"
                                 required
                                 maxlength="50"
-                                title="Nombre completo"
+                                title="Nombre de usuario"
                                 autocomplete="name"
+                                value="{{name}}"
                             >
                         </div>
                         {{!-- Campo: Correo electrónico --}}
@@ -43,9 +44,10 @@
                                 class="form-control rounded-3 shadow-sm" 
                                 placeholder="ejemplo@correo.com"
                                 required
-                                maxlength="100"
+                                maxlength="45"
                                 title="Correo electrónico válido"
                                 autocomplete="username"
+                                value="{{email}}"
                             >
                         </div>
                         {{!-- Campo: Contraseña --}}
@@ -59,6 +61,7 @@
                                 placeholder="Mínimo 6 caracteres"
                                 required
                                 minlength=" 6"
+                                maxlength="20"
                                 title="Contraseña segura"
                                 autocomplete="new-password"
                             >
@@ -74,6 +77,7 @@
                                 placeholder="Repite la contraseña"
                                 required
                                 minlength="6"
+                                maxlength="20"
                                 title="Repite la contraseña"
                                 autocomplete="new-password"
                             >
