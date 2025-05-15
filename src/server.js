@@ -5,9 +5,11 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
 // Initilizations
 const app = express();
+require('./config/passport'); // Importa la configuración de Passport para la autenticación
 
 // Settings
 app.set('port', process.env.PORT || 4000); // Si no se encuentra la variable de entorno `PORT`, la aplicación usará el puerto `4000` por defecto.
@@ -42,12 +44,16 @@ app.use(session({
     resave: true, // Fuerza a guardar la sesión en cada solicitud, incluso si no ha habido cambios
     saveUninitialized: true // Guarda una sesión nueva incluso si no ha sido inicializada
 }));
+app.use(passport.initialize()); // Inicializa Passport para la autenticación
+app.use(passport.session()); // Middleware de Passport para manejar sesiones
 app.use(flash()); // Middleware para mostrar mensajes flash
 
 app.use((req, res, next) => {
     // Middleware para pasar variables locales a todas las vistas
     res.locals.success_msg = req.flash('success_msg'); // Mensajes de éxito
     res.locals.error_msg = req.flash('error_msg'); // Mensajes de error
+    res.locals.error = req.flash('error'); // Mensajes de error de autenticación (passport)
+    res.locals.user = req.user || null; // Usuario autenticado (si existe)
     next(); // Llama al siguiente middleware o ruta
 });
 

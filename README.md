@@ -30,6 +30,7 @@ El proyecto utiliza los siguientes módulos de npm para gestionar las funcionali
 - **nodemon**: Herramienta que reinicia automáticamente el servidor de desarrollo cuando se realizan cambios en los archivos del proyecto, facilitando el proceso de desarrollo.
 - **npm-check-updates**: Herramienta que permite actualizar las dependencias del `package.json` a la última versión disponible de forma fácil, ayudando a mantener las dependencias del proyecto actualizadas.
 - **morgan**: Middleware para el registro de logs HTTP. Se utiliza para generar información sobre las solicitudes que se hacen a la aplicación, incluyendo detalles como el método HTTP, la ruta solicitada, el código de estado y el tiempo de respuesta. Este módulo es útil principalmente en entornos de desarrollo para depurar y monitorear el tráfico de la aplicación.
+- **geoip-lite**: Biblioteca para obtener información geográfica a partir de direcciones IP. Permite determinar la ubicación aproximada de los usuarios que acceden a la aplicación, incluyendo país, región, ciudad y coordenadas geográficas, lo que puede utilizarse para personalizar la experiencia de usuario o para análisis de tráfico.
 
 ## Características principales
 
@@ -57,6 +58,41 @@ Antes de ejecutar el proyecto, es necesario configurar las variables de entorno.
    MULTIGESTOR_MONGODB_HOST=127.0.0.1
    MULTIGESTOR_MONGODB_PORT=27017
    MULTIGESTOR_MONGODB_DATABASE=gestor-de-productos
+
+## 🔒 Sistema de Auditoría y Seguridad
+
+La aplicación cuenta con un robusto sistema de registro de actividad que monitorea los intentos de inicio de sesión, proporcionando una capa adicional de seguridad y facilitando la detección de posibles accesos no autorizados.
+
+### 📋 Registro de Intentos de Inicio de Sesión
+
+Cada intento de acceso al sistema se registra meticulosamente en el archivo `intentos-inicio-sesion.log` dentro del directorio `/logs`. Estos registros capturan información detallada en formato estructurado:
+
+```
+2025-05-15T04:48:33.997Z | IP: 127.0.0.1 | Correo: test@gmail.com | Método: POST | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0 | País: Desconocido | Ciudad: Desconocido | ISP: Desconocido
+```
+
+### 📊 Información Registrada
+
+- **Marca temporal**: Fecha y hora exacta del intento de inicio de sesión en formato ISO 8601
+- **Dirección IP**: IP desde donde se origina la solicitud
+- **Correo electrónico**: Dirección de correo utilizada en el intento
+- **Método HTTP**: Método utilizado para la solicitud (generalmente POST)
+- **User-Agent**: Información detallada sobre el navegador y sistema operativo del cliente
+- **Geolocalización**: Datos sobre la ubicación geográfica (cuando están disponibles):
+  - País
+  - Ciudad
+  - Proveedor de servicios de Internet (ISP)
+
+### 🛡️ Beneficios de Seguridad
+
+Este sistema de auditoría proporciona ventajas significativas:
+
+- **Detección de patrones sospechosos**: Identificación de múltiples intentos fallidos desde la misma IP
+- **Análisis forense**: Registro completo para investigación en caso de incidentes de seguridad
+- **Cumplimiento normativo**: Apoyo para requisitos de cumplimiento en protección de datos
+- **Monitoreo proactivo**: Capacidad para revisar y analizar la actividad de autenticación del sistema
+
+Los administradores pueden utilizar estas bitácoras para implementar medidas adicionales de seguridad, como el bloqueo temporal de cuentas después de múltiples intentos fallidos o restricciones basadas en ubicación geográfica.
 
 ## Hecho por
 
